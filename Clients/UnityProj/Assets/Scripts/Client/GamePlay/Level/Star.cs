@@ -5,7 +5,12 @@ public class Star : MonoBehaviour
 {
     public void OnScore()
     {
-        LevelManager.Instance.Score();
+        if (!LevelManager.Instance.CurrentLevel.IsGameEnd)
+        {
+            LevelManager.Instance.Score();
+        }
+
+        AudioManager.Instance.SoundPlay("sfx/Score", 0.2f);
         Destroy(gameObject);
     }
 }

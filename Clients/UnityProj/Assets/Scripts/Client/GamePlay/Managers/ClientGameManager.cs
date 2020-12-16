@@ -116,7 +116,7 @@ public class ClientGameManager : MonoSingleton<ClientGameManager>
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.F10))
+        if (Input.GetKeyUp(KeyCode.R))
         {
             SceneManager.LoadScene(0);
             return;

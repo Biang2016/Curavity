@@ -33,7 +33,7 @@ public class HUDPanel : BaseUIPanel
 
     public void SetPlayerScore(int score)
     {
-        ScoreText.text = $"x{score}";
+        ScoreText.text = $"x{score}/{LevelManager.Instance.CurrentLevel.TotalStartCount}";
         ScoreAnim.SetTrigger("Jump");
     }
 }

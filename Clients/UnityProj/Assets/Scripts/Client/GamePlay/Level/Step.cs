@@ -4,10 +4,6 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class Step : MonoBehaviour
 {
-    public float ModelWidth = 1;
-    public float PivotModelWidth = 1;
-    public float Width = 1;
-    public int Height = 5;
     public StepType StepType;
 
     [BoxGroup("力学特征")]
@@ -29,9 +25,12 @@ public class Step : MonoBehaviour
     [OnValueChanged("ChangeStepGroupColorGradient")]
     public Gradient ColorGradient;
 
+    public bool UseDefaultColor = true;
+
     [Button("改变组颜色")]
     private void ChangeStepGroupColorGradient()
     {
+        if (UseDefaultColor) return;
         Level level = GetComponentInParent<Level>();
         if (level)
         {
@@ -51,17 +50,56 @@ public class Step : MonoBehaviour
     public SpringJoint SpringJoint;
     public Rigidbody Rigidbody;
     public MeshRenderer MeshRenderer;
+    public MeshRenderer MeshRenderer_Damped;
     public MeshRenderer PivotMeshRenderer;
-    public BoxCollider BoxCollider;
 
     public Step PreviousStep;
     public Step NextStep;
 
     public Transform SpikeTransform;
+    public Transform CheckpointTransform;
+
+    public float DampedDuration = 3f;
+    private float DampedTick = 0f;
+    private bool isDamped;
+
+    public bool IsDamped
+    {
+        get { return isDamped; }
+        set
+        {
+            if (isDamped != value)
+            {
+                if (value)
+                {
+                    Rigidbody.drag = 10f;
+                    MeshRenderer.enabled = false;
+                    MeshRenderer_Damped.enabled = true;
+                }
+                else
+                {
+                    Rigidbody.drag = 0f;
+                    MeshRenderer.enabled = true;
+                    MeshRenderer_Damped.enabled = false;
+                }
+
+                DampedTick = 0f;
+                isDamped = value;
+            }
+            else
+            {
+                if (isDamped)
+                {
+                    DampedTick = 0;
+                }
+            }
+        }
+    }
 
     void Awake()
     {
         Initialize();
+        MeshRenderer_Damped.enabled = false;
     }
 
     void FixedUpdate()
@@ -74,6 +112,15 @@ public class Step : MonoBehaviour
             Rigidbody.mass = Mass;
             PreviousStep?.Rigidbody.AddForce(-force * ForcePassRatio);
             NextStep?.Rigidbody.AddForce(-force * ForcePassRatio);
+
+            if (IsDamped)
+            {
+                DampedTick += Time.fixedDeltaTime;
+                if (DampedTick >= DampedDuration)
+                {
+                    IsDamped = false;
+                }
+            }
         }
     }
 
@@ -87,33 +134,12 @@ public class Step : MonoBehaviour
 
     private void Initialize()
     {
-        float sign = 1;
-        switch (StepType)
-        {
-            case StepType.Normal:
-            case StepType.Floor:
-            case StepType.Wall:
-            case StepType.CheckPoint:
-            case StepType.DownSpikeRoot:
-            {
-                sign = -1;
-                break;
-            }
-            case StepType.Ceiling:
-            case StepType.UpSpikeRoot:
-            {
-                sign = 1;
-                break;
-            }
-        }
-
-        BoxCollider.center = new Vector3(0, sign * Height / 2f, 0);
-        BoxCollider.size = new Vector3(Width, Height, 1);
-
-        PivotMeshRenderer.transform.localScale = new Vector3(PivotModelWidth, 0.1f, 1);
-        float scaleX = ModelWidth - 0.05f;
-        MeshRenderer.transform.localPosition = new Vector3(0, sign * Height / 2f, 0);
-        MeshRenderer.transform.localScale = new Vector3(scaleX, Height, 1);
+        PivotMeshRenderer.transform.localScale = transform.InverseTransformVector(new Vector3(transform.localScale.x, 0.1f, 1));
+        PivotMeshRenderer.transform.localPosition = new Vector3(0, 0.5f, 0);
+        MeshRenderer.transform.localScale = new Vector3((transform.localScale.x - 0.1f) / transform.localScale.x, 1, 1);
+        MeshRenderer.transform.localPosition = Vector3.zero;
+        MeshRenderer_Damped.transform.localScale = new Vector3((transform.localScale.x - 0.1f) / transform.localScale.x, 1, 1);
+        MeshRenderer_Damped.transform.localPosition = Vector3.zero;
 
         if (SpikeTransform)
         {
@@ -121,17 +147,26 @@ public class Step : MonoBehaviour
             {
                 case StepType.DownSpikeRoot:
                 {
-                    SpikeTransform.localPosition = new Vector3(0, -Height, 0);
+                    SpikeTransform.localPosition = new Vector3(0, -0.5f, 0);
                     SpikeTransform.localRotation = Quaternion.Euler(0, 0, 180);
+                    SpikeTransform.localScale = transform.InverseTransformVector(Vector3.one);
                     break;
                 }
                 case StepType.UpSpikeRoot:
                 {
-                    SpikeTransform.localPosition = new Vector3(0, Height, 0);
+                    SpikeTransform.localPosition = new Vector3(0, 0.5f, 0);
                     SpikeTransform.localRotation = Quaternion.Euler(0, 0, 0);
+                    SpikeTransform.localScale = transform.InverseTransformVector(Vector3.one);
                     break;
                 }
             }
+        }
+
+        if (CheckpointTransform)
+        {
+            CheckpointTransform.localPosition = new Vector3(CheckpointTransform.localPosition.x, 0.5f, 0);
+            CheckpointTransform.position += Vector3.up * 0.5f;
+            CheckpointTransform.localScale = transform.InverseTransformVector(Vector3.one);
         }
     }
 }

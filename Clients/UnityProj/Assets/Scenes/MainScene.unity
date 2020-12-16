@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 12
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -118,6 +118,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -130,19 +132,43 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1500443317, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.13207549
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1500443317, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.13207549
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1500443317, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.13207549
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1500443317, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 16131
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137790036, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
+      propertyPath: targetList_Rigidbody.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137790036, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
+      propertyPath: OrthographicSizeLevels.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137790036, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
+      propertyPath: DistanceLevels.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137790036, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
+      propertyPath: DistanceLevels_ScaleForBattleUI.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137790036, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
+      propertyPath: InGameUISizeLevels.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137790036, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
+      propertyPath: targetList.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2137790036, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
       propertyPath: Distance
@@ -151,6 +177,26 @@ PrefabInstance:
     - target: {fileID: 2137790036, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
       propertyPath: SmoothTime
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137790036, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
+      propertyPath: targetList_Rigidbody.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137790036, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
+      propertyPath: OrthographicSizeLevels.Array.data[8]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137790036, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
+      propertyPath: DistanceLevels.Array.data[8]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137790036, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
+      propertyPath: DistanceLevels_ScaleForBattleUI.Array.data[8]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137790036, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}
+      propertyPath: InGameUISizeLevels.Array.data[8]
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 2180581897189703316, guid: 776f29a684a9a412eb9b5171aa4742bd,
         type: 3}

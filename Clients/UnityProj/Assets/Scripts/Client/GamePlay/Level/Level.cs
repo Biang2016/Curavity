@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BiangStudio;
 using Sirenix.OdinInspector;
+using TMPro;
 
 public class Level : MonoBehaviour
 {
@@ -13,8 +14,18 @@ public class Level : MonoBehaviour
     public List<CheckPoint> CheckPoints = new List<CheckPoint>();
 
     public Vector3 PlayerRebornPosition;
+    public int CurrentCheckPointIndex;
+    public int TransportCheckPointIndex_Cheat;
+    public int FinalCheckPointIndex;
 
     public Material DefaultStepMaterial;
+
+    public TextMeshPro TimerText;
+    public GameObject FinalTexts;
+
+    public int TotalStartCount = 0;
+
+    internal bool IsGameEnd;
 
     void Awake()
     {
@@ -23,6 +34,7 @@ public class Level : MonoBehaviour
 
     void Initialize()
     {
+        AudioManager.Instance.BGMFadeIn("bgm/Alston & Ozone - LSDesigns", 0f, 0.35f, true);
         Player player = GetComponentInChildren<Player>();
         CheckPoints = GetComponentsInChildren<CheckPoint>().ToList();
         CheckPoints.Sort((a, b) => a.transform.position.x.CompareTo(b.transform.position.x));
@@ -126,9 +138,37 @@ public class Level : MonoBehaviour
         Transform starRoot = new GameObject("StarRoot").transform;
         starRoot.transform.parent = transform;
         starRoot.gameObject.tag = "StarRoot";
+        TotalStartCount = 0;
         foreach (Star star in GetComponentsInChildren<Star>())
         {
             star.transform.parent = starRoot;
+            TotalStartCount++;
+        }
+
+        int checkPointIndex = 0;
+        foreach (CheckPoint cp in GetComponentsInChildren<CheckPoint>())
+        {
+            cp.CheckPointIndex = checkPointIndex;
+            FinalCheckPointIndex = checkPointIndex;
+            checkPointIndex++;
+        }
+    }
+
+    private float Timer;
+
+    void FixedUpdate()
+    {
+        if (CurrentCheckPointIndex < FinalCheckPointIndex)
+        {
+            Timer += Time.fixedDeltaTime;
+            TimerText.text = CommonUtils.TimeToString(Timer);
+            FinalTexts.SetActive(false);
+            IsGameEnd = false;
+        }
+        else
+        {
+            FinalTexts.SetActive(true);
+            IsGameEnd = true;
         }
     }
 }
@@ -157,10 +197,13 @@ public class StepGroup
             step.ForcePassRatio = ForcePassRatio;
             step.MeshRenderer.material = Material;
             step.ColorGradient = ColorGradient;
-            MaterialPropertyBlock mpb = new MaterialPropertyBlock();
-            step.MeshRenderer.GetPropertyBlock(mpb);
-            mpb.SetColor("_Color", ColorGradient.Evaluate((index + 0.5f) / StepList.Count));
-            step.MeshRenderer.SetPropertyBlock(mpb);
+            if (!step.UseDefaultColor)
+            {
+                MaterialPropertyBlock mpb = new MaterialPropertyBlock();
+                step.MeshRenderer.GetPropertyBlock(mpb);
+                mpb.SetColor("_Color", ColorGradient.Evaluate((index + 0.5f) / StepList.Count));
+                step.MeshRenderer.SetPropertyBlock(mpb);
+            }
         }
 
         for (int i = 1; i < StepList.Count; i++)

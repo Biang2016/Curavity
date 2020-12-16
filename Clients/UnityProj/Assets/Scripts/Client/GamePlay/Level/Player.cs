@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Data.SqlTypes;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using Sirenix.OdinInspector;
 
 [ExecuteInEditMode]
@@ -34,12 +33,16 @@ public class Player : MonoBehaviour
     [LabelText("球半径")]
     public float BallRadius;
 
+    [LabelText("制动半径")]
+    public float DamperRadius;
+
     public ProjectileType DieFX;
     public ProjectileType DieExplodeFX;
     public ProjectileType JumpFX;
     public ProjectileType DiveFX;
     public ProjectileType DiveHitFX;
     public ProjectileType ScoreFX;
+    public ProjectileType DamperFX;
 
     public float DiveCollideFXVelocityThreshold = 10f;
 
@@ -108,6 +111,45 @@ public class Player : MonoBehaviour
                 ProjectileManager.Instance.PlayProjectileFlash(DiveFX, transform.position);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            AudioManager.Instance.SoundPlay("sfx/FreezeSkill", 0.2f);
+            AudioManager.Instance.SoundPlay("sfx/Freeze", 0.2f);
+            ProjectileHit hit = ProjectileManager.Instance.PlayProjectileHit(DamperFX, transform.position);
+            hit.transform.localScale = Vector3.one * 3f;
+            hit.transform.parent = transform;
+
+            Collider[] stepColliders = Physics.OverlapSphere(transform.position, DamperRadius, LayerManager.Instance.LayerMask_Step);
+            foreach (Collider sc in stepColliders)
+            {
+                Step step = sc.GetComponentInParent<Step>();
+                step.IsDamped = true;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                if (LevelManager.Instance.CurrentLevel.TransportCheckPointIndex_Cheat + 1 < LevelManager.Instance.CurrentLevel.CheckPoints.Count)
+                {
+                    LevelManager.Instance.CurrentLevel.TransportCheckPointIndex_Cheat++;
+                    CheckPoint cp = LevelManager.Instance.CurrentLevel.CheckPoints[LevelManager.Instance.CurrentLevel.TransportCheckPointIndex_Cheat];
+                    LevelManager.Instance.Player.ResetToPosition(cp.transform.position + Vector3.up * 2f);
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                if (LevelManager.Instance.CurrentLevel.TransportCheckPointIndex_Cheat - 1 >= 0)
+                {
+                    LevelManager.Instance.CurrentLevel.TransportCheckPointIndex_Cheat--;
+                    CheckPoint cp = LevelManager.Instance.CurrentLevel.CheckPoints[LevelManager.Instance.CurrentLevel.TransportCheckPointIndex_Cheat];
+                    LevelManager.Instance.Player.ResetToPosition(cp.transform.position + Vector3.up * 2f);
+                }
+            }
+        }
     }
 
     void FixedUpdate()
@@ -170,9 +212,11 @@ public class Player : MonoBehaviour
 
     void Die()
     {
+        AudioManager.Instance.SoundPlay("sfx/DeadPong", 0.35f);
         LevelManager.Instance.Die(
             () =>
             {
+                AudioManager.Instance.SoundPlay("sfx/Dead", 0.35f);
                 ProjectileManager.Instance.PlayProjectileHit(DieExplodeFX, transform.position);
                 Hide();
             }
