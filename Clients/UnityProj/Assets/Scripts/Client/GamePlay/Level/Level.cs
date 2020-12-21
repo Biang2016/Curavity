@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using BiangStudio;
+using BiangLibrary;
 using Sirenix.OdinInspector;
 using TMPro;
 

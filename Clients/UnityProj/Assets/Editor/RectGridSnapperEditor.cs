@@ -86,8 +86,8 @@ public class RectGridSnapperEditor : Editor
 
         if (recorded)
         {
-            Undo.RecordObject(r, "BiangStudio.RectGridSnapper");
-            Undo.RecordObject(r.transform, "BiangStudio.RectGridSnapper");
+            Undo.RecordObject(r, "BiangLibrary.RectGridSnapper");
+            Undo.RecordObject(r.transform, "BiangLibrary.RectGridSnapper");
         }
 
         r.transform.localScale = r.Bounds_GridUnit.size;

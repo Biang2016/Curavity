@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using BiangStudio.GamePlay;
-using BiangStudio.GamePlay.UI;
-using BiangStudio.Singleton;
+using BiangLibrary.GamePlay;
+using BiangLibrary.GamePlay.UI;
+using BiangLibrary.Singleton;
 using UnityEngine;
 using UnityEngine.Events;
 

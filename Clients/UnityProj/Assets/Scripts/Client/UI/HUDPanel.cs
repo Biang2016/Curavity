@@ -1,4 +1,4 @@
-﻿using BiangStudio.GamePlay.UI;
+﻿using BiangLibrary.GamePlay.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

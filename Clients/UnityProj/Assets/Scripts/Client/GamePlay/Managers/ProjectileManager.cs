@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using BiangStudio.ObjectPool;
-using BiangStudio.Singleton;
+using BiangLibrary.ObjectPool;
+using BiangLibrary.Singleton;
 using UnityEngine;
 
 public class ProjectileManager : TSingletonBaseManager<ProjectileManager>
