@@ -27,6 +27,6 @@ public class CheckPoint : MonoBehaviour
             LevelManager.Instance.CurrentLevel.TransportCheckPointIndex_Cheat = CheckPointIndex;
         }
 
-        AudioManager.Instance.SoundPlay("sfx/Checkpoint", 0.2f);
+        WwiseAudioManager.Instance.CheckPoint.Post(gameObject);
     }
 }

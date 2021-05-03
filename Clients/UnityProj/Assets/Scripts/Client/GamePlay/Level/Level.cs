@@ -34,7 +34,7 @@ public class Level : MonoBehaviour
 
     void Initialize()
     {
-        AudioManager.Instance.BGMFadeIn("bgm/Alston & Ozone - LSDesigns", 0f, 0.35f, true);
+        WwiseAudioManager.Instance.BGM_Start.Post(gameObject);
         Player player = GetComponentInChildren<Player>();
         CheckPoints = GetComponentsInChildren<CheckPoint>().ToList();
         CheckPoints.Sort((a, b) => a.transform.position.x.CompareTo(b.transform.position.x));

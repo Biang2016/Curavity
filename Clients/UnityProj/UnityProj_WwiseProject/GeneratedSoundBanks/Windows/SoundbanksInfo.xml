@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
+	<RootPaths>
+		<ProjectRoot>G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="2779301355">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<GameParameters>
+				<GameParameter Id="341651998" Name="BGM_Volume" ObjectPath="\Game Parameters\Default Work Unit\BGM_Volume"/>
+				<GameParameter Id="1564184899" Name="SFX_Volume" ObjectPath="\Game Parameters\Default Work Unit\SFX_Volume"/>
+				<GameParameter Id="4179668880" Name="Master_Volume" ObjectPath="\Game Parameters\Default Work Unit\Master_Volume"/>
+			</GameParameters>
+		</SoundBank>
+		<SoundBank Id="1605876511" Language="SFX" Hash="1837271952">
+			<ObjectPath>\SoundBanks\Default Work Unit\SFX_Bank</ObjectPath>
+			<ShortName>SFX_Bank</ShortName>
+			<Path>SFX_Bank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2044049779" Name="Dead" ObjectPath="\Events\Default Work Unit\Dead" DurationType="OneShot" DurationMin="1.292109" DurationMax="1.292109"/>
+				<Event Id="1334257457" Name="DeadPong" ObjectPath="\Events\Default Work Unit\DeadPong" DurationType="OneShot" DurationMin="5.638775" DurationMax="5.638775"/>
+				<Event Id="3285814624" Name="Freeze" ObjectPath="\Events\Default Work Unit\Freeze" DurationType="OneShot" DurationMin="3.056327" DurationMax="3.056327"/>
+				<Event Id="2232241423" Name="FreezeSkill" ObjectPath="\Events\Default Work Unit\FreezeSkill" DurationType="OneShot" DurationMin="0.655646" DurationMax="0.655646"/>
+				<Event Id="2398231425" Name="Score" ObjectPath="\Events\Default Work Unit\Score" DurationType="OneShot" DurationMin="1.724082" DurationMax="1.724082"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="43523947" Language="SFX">
+					<ShortName>DeadPong.wav</ShortName>
+					<Path>SFX\DeadPong_10C4C929.wem</Path>
+				</File>
+				<File Id="134510993" Language="SFX">
+					<ShortName>Freeze.wav</ShortName>
+					<Path>SFX\Freeze_10C4C929.wem</Path>
+				</File>
+				<File Id="150945164" Language="SFX">
+					<ShortName>Dead.wav</ShortName>
+					<Path>SFX\Dead_10C4C929.wem</Path>
+				</File>
+				<File Id="171457723" Language="SFX">
+					<ShortName>FreezeSkill.wav</ShortName>
+					<Path>SFX\FreezeSkill_10C4C929.wem</Path>
+				</File>
+				<File Id="369336135" Language="SFX">
+					<ShortName>Score.wav</ShortName>
+					<Path>SFX\Score_10C4C929.wem</Path>
+				</File>
+				<File Id="424890944" Language="SFX">
+					<ShortName>Checkpoint.wav</ShortName>
+					<Path>SFX\Checkpoint_10C4C929.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="3734788450" Language="SFX" Hash="448831321">
+			<ObjectPath>\SoundBanks\Default Work Unit\BGM_Bank</ObjectPath>
+			<ShortName>BGM_Bank</ShortName>
+			<Path>BGM_Bank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2985635692" Name="BGM_Start" ObjectPath="\Events\Default Work Unit\BGM_Start" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2090192256" Name="BGM_Stop" ObjectPath="\Events\Default Work Unit\BGM_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="251619155" Language="SFX">
+					<ShortName>Alston &amp; Ozone - LSDesigns.wav</ShortName>
+					<Path>SFX\Alston &amp; Ozone - LSDesigns_D79FB2B7.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

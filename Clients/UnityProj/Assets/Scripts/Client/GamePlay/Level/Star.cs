@@ -10,7 +10,7 @@ public class Star : MonoBehaviour
             LevelManager.Instance.Score();
         }
 
-        AudioManager.Instance.SoundPlay("sfx/Score", 0.2f);
+        WwiseAudioManager.Instance.Score.Post(gameObject);
         Destroy(gameObject);
     }
 }

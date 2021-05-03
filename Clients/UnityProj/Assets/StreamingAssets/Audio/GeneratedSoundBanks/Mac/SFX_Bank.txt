@@ -1,0 +1,16 @@
+Event	ID	Name			Wwise Object Path	Notes
+	612075679	CheckPoint			\Default Work Unit\CheckPoint	
+	1334257457	DeadPong			\Default Work Unit\DeadPong	
+	2044049779	Dead			\Default Work Unit\Dead	
+	2232241423	FreezeSkill			\Default Work Unit\FreezeSkill	
+	2398231425	Score			\Default Work Unit\Score	
+	3285814624	Freeze			\Default Work Unit\Freeze	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	43523947	DeadPong	G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Mac\SFX\DeadPong_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DeadPong		497404
+	134510993	Freeze	G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Mac\SFX\Freeze_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Freeze		269632
+	150945164	Dead	G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Mac\SFX\Dead_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dead		114028
+	171457723	FreezeSkill	G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Mac\SFX\FreezeSkill_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FreezeSkill		57892
+	369336135	Score	G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Mac\SFX\Score_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Score		152128
+	424890944	Checkpoint	G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Mac\SFX\Checkpoint_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Checkpoint		232768
+

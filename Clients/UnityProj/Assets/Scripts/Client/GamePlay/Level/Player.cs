@@ -114,8 +114,8 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            AudioManager.Instance.SoundPlay("sfx/FreezeSkill", 0.2f);
-            AudioManager.Instance.SoundPlay("sfx/Freeze", 0.2f);
+            WwiseAudioManager.Instance.FreezeSkill.Post(gameObject);
+            WwiseAudioManager.Instance.Freeze.Post(gameObject);
             ProjectileHit hit = ProjectileManager.Instance.PlayProjectileHit(DamperFX, transform.position);
             hit.transform.localScale = Vector3.one * 3f;
             hit.transform.parent = transform;
@@ -212,11 +212,11 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-        AudioManager.Instance.SoundPlay("sfx/DeadPong", 0.35f);
+        WwiseAudioManager.Instance.DeadPong.Post(gameObject);
         LevelManager.Instance.Die(
             () =>
             {
-                AudioManager.Instance.SoundPlay("sfx/Dead", 0.35f);
+                WwiseAudioManager.Instance.Dead.Post(gameObject);
                 ProjectileManager.Instance.PlayProjectileHit(DieExplodeFX, transform.position);
                 Hide();
             }

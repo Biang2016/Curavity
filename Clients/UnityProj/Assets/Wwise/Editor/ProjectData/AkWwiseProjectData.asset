@@ -30,8 +30,19 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: f54985cace4ef64b84d4ba5148fd6a4b
     GuidInternal: 
-    m_lastTime: -8585815981314940053
+    m_lastTime: -8585815966967081565
     List:
+    - name: BGM_Bus
+      guid: a3b86cf8e19b48409145171dd39b1802
+      id: 2060214130
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: BGM_Bus
+        ObjectType: 2
+      Path: Default Work Unit\Master Audio Bus\BGM_Bus
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -41,6 +52,17 @@ MonoBehaviour:
       - ElementName: Master Audio Bus
         ObjectType: 2
       Path: Default Work Unit\Master Audio Bus
+    - name: SFX_Bus
+      guid: 6d6a9561943fa149b205dcf47178ef23
+      id: 213475909
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: SFX_Bus
+        ObjectType: 2
+      Path: Default Work Unit\Master Audio Bus\SFX_Bus
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
@@ -49,8 +71,26 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 91ad4baf4d19f349b653a08ac4c146f2
     GuidInternal: 
-    m_lastTime: -8585815981314110336
-    List: []
+    m_lastTime: -8585815972263892605
+    List:
+    - name: BGM_Bank
+      guid: 8e722cad76766747a1776b170e140a1a
+      id: 3734788450
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: BGM_Bank
+        ObjectType: 7
+      Path: Default Work Unit\BGM_Bank
+    - name: SFX_Bank
+      guid: 9d6876b05e94bf46bbdbeff92b352292
+      id: 1605876511
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX_Bank
+        ObjectType: 7
+      Path: Default Work Unit\SFX_Bank
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -59,8 +99,116 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 6859b6789ffef64c8c4a11572d5c1491
     GuidInternal: 
-    m_lastTime: -8585815981314250281
-    List: []
+    m_lastTime: -8585815957479913437
+    List:
+    - name: BGM_Start
+      guid: ff6b4940d39e4849b767605e1d9bd58b
+      id: 2985635692
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: BGM_Start
+        ObjectType: 3
+      Path: Default Work Unit\BGM_Start
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: BGM_Stop
+      guid: bdb35d068617a744864432def7365029
+      id: 2090192256
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: BGM_Stop
+        ObjectType: 3
+      Path: Default Work Unit\BGM_Stop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: CheckPoint
+      guid: 0bc7eabf01ee5d49a0e857f1415f101b
+      id: 612075679
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: CheckPoint
+        ObjectType: 3
+      Path: Default Work Unit\CheckPoint
+      maxAttenuation: 0
+      maxDuration: 2.638367
+      minDuration: 2.638367
+    - name: Dead
+      guid: 512216c9cf1ec7459672b5d64f79d9f6
+      id: 2044049779
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Dead
+        ObjectType: 3
+      Path: Default Work Unit\Dead
+      maxAttenuation: 0
+      maxDuration: 1.292109
+      minDuration: 1.292109
+    - name: DeadPong
+      guid: 69c127f7e7c9324e9253716e62747376
+      id: 1334257457
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: DeadPong
+        ObjectType: 3
+      Path: Default Work Unit\DeadPong
+      maxAttenuation: 0
+      maxDuration: 5.638775
+      minDuration: 5.638775
+    - name: Freeze
+      guid: 9cea8ea66d727243af0da3d4938c7650
+      id: 3285814624
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Freeze
+        ObjectType: 3
+      Path: Default Work Unit\Freeze
+      maxAttenuation: 0
+      maxDuration: 3.056327
+      minDuration: 3.056327
+    - name: FreezeSkill
+      guid: e0992922bf07544380a02c0a2cbd4816
+      id: 2232241423
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: FreezeSkill
+        ObjectType: 3
+      Path: Default Work Unit\FreezeSkill
+      maxAttenuation: 0
+      maxDuration: 0.655646
+      minDuration: 0.655646
+    - name: Score
+      guid: 66434329d2d0eb4eb2af2b3fbb20b605
+      id: 2398231425
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Score
+        ObjectType: 3
+      Path: Default Work Unit\Score
+      maxAttenuation: 0
+      maxDuration: 1.724082
+      minDuration: 1.724082
+    - name: StopAll
+      guid: e535c5935fcec242a52653d47527ce2d
+      id: 3086540886
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: StopAll
+        ObjectType: 3
+      Path: Default Work Unit\StopAll
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -69,8 +217,35 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 0641870e48ac8f419f81d828f8271f1e
     GuidInternal: 
-    m_lastTime: -8585815981312500857
-    List: []
+    m_lastTime: -8585815966804111129
+    List:
+    - name: BGM_Volume
+      guid: 661061264220194494a4e6126d6e7874
+      id: 341651998
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: BGM_Volume
+        ObjectType: 13
+      Path: Default Work Unit\BGM_Volume
+    - name: Master_Volume
+      guid: 02f824e724ab5944b3c1f07b95b3197b
+      id: 4179668880
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master_Volume
+        ObjectType: 13
+      Path: Default Work Unit\Master_Volume
+    - name: SFX_Volume
+      guid: 4f0a5dd11361104ab2ad4dd60367b633
+      id: 1564184899
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX_Volume
+        ObjectType: 13
+      Path: Default Work Unit\SFX_Volume
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -101,6 +276,9 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8585815981314700149
     List: []
-  ExpandedItems: []
+  ExpandedItems:
+  - /UnityProj_WwiseProject
+  - /UnityProj_WwiseProject/SoundBanks
+  - /UnityProj_WwiseProject/SoundBanks/Default Work Unit
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

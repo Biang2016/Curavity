@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{AF4BAD91-194D-49F3-B653-A08AC4C146F2}" SchemaVersion="97">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{AF4BAD91-194D-49F3-B653-A08AC4C146F2}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{AF4BAD91-194D-49F3-B653-A08AC4C146F2}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="BGM_Bank" ID="{AD2C728E-7676-4767-A177-6B170E140A1A}">
+					<ObjectInclusionList>
+						<ObjectRef Name="BGM" ID="{A1B7532A-6C65-4E2E-AF7C-BBE33C3B1876}" WorkUnitID="{C8717D63-94C2-474A-8E82-0D3AC5CF40EB}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="SFX_Bank" ID="{B076689D-945E-46BF-BBDB-EFF92B352292}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Default Work Unit" ID="{E69D1AF6-1884-4D14-8D68-C195AD998216}" WorkUnitID="{E69D1AF6-1884-4D14-8D68-C195AD998216}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>

@@ -3,6 +3,15 @@
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{20AF4793-C76F-450E-A34B-8148C45F73C1}">
 			<PropertyList>
+				<Property Name="Event Action List\{065DB3BD-1786-44A7-8644-32DEF7365029}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{222999E0-07BF-4354-80A0-2C0A2CBD4816}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{29434366-D0D2-4EEB-B2AF-2B3FBB20B605}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{40496BFF-9ED3-4948-B767-605E1D9BD58B}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{93C535E5-CE5F-42C2-A526-53D47527CE2D}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{A68EEA9C-726D-4372-AF0D-A3D4938C7650}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{BFEAC70B-EE01-495D-A0E8-57F1415F101B}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{C9162251-1ECF-45C7-9672-B5D64F79D9F6}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{F727C169-C9E7-4E32-9253-716E62747376}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
 					<ValueList>
 						<Value Platform="Mac"></Value>
@@ -15,13 +24,22 @@
 						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
 					</ValueList>
 				</Property>
+				<Property Name="General\SourceControlPluginID" Type="string" Value="{C403A906-0C19-4ED5-808E-748707065301}"/>
+				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value="BvDMKA=="/>
+				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value="62GZE4foPUipgJLzBJ3iXJbTehLh7NhJgmG7c2UNOXQ="/>
+				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="jnIsrXZ2Z0ehd2sXDhQKGp1odrBelL9Gu9vv+Ss1IpI="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}"/>
+				<Property Name="Interactive Music\x64_{203BAEFA-D685-47D3-99F9-5DFE35F7937E} - SegmentEditorZoomInfo" Type="string" Value="mpmZmZmZuT//HbjORmEOQAAAAAAAAGxAAAAAAAAA8D8AAAAAAAAAAAAAAAAAABxA"/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\MeterMode1" Type="int32" Value="1"/>
 				<Property Name="MeterView\MeterMode1Viewpoint0" Type="int32" Value="1"/>
 				<Property Name="MeterView\MeterMode1Viewpoint1" Type="int32" Value="2"/>
 				<Property Name="MeterView\MeterMode1Viewpoint2" Type="int32" Value="3"/>
 				<Property Name="MeterView\MeterMode1Viewpoint3" Type="int32" Value="0"/>
+				<Property Name="OverrideCacheFolder\Active" Type="bool" Value="False"/>
+				<Property Name="OverrideCacheFolder\Path" Type="string" Value=".cache"/>
+				<Property Name="OverrideOriginalFolder\Active" Type="bool" Value="False"/>
+				<Property Name="OverrideOriginalFolder\Path" Type="string" Value="Originals"/>
 				<Property Name="SoundBankHeaderFilePath" Type="string" Value="GeneratedSoundBanks\"/>
 				<Property Name="SoundBankPaths" Type="string">
 					<ValueList>

@@ -1,6 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{78B65968-FE9F-4CF6-8C4A-11572D5C1491}" SchemaVersion="97">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{78B65968-FE9F-4CF6-8C4A-11572D5C1491}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{78B65968-FE9F-4CF6-8C4A-11572D5C1491}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="BGM_Start" ID="{40496BFF-9ED3-4948-B767-605E1D9BD58B}">
+					<ChildrenList>
+						<Action Name="" ID="{CD2DED1D-1995-4E7D-966F-036C99529832}" ShortID="950457297">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BGM" ID="{A1B7532A-6C65-4E2E-AF7C-BBE33C3B1876}" WorkUnitID="{C8717D63-94C2-474A-8E82-0D3AC5CF40EB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="BGM_Stop" ID="{065DB3BD-1786-44A7-8644-32DEF7365029}">
+					<ChildrenList>
+						<Action Name="" ID="{28E19403-4C6A-41F6-BED2-310179269C12}" ShortID="408571180">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BGM" ID="{A1B7532A-6C65-4E2E-AF7C-BBE33C3B1876}" WorkUnitID="{C8717D63-94C2-474A-8E82-0D3AC5CF40EB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="CheckPoint" ID="{BFEAC70B-EE01-495D-A0E8-57F1415F101B}">
+					<ChildrenList>
+						<Action Name="" ID="{8F5A5F56-1974-4D1C-9A02-5FC6FEDCC5DB}" ShortID="674360291">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Checkpoint" ID="{332F5601-E412-4CEC-9F70-E91C14DCE7A6}" WorkUnitID="{E69D1AF6-1884-4D14-8D68-C195AD998216}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Dead" ID="{C9162251-1ECF-45C7-9672-B5D64F79D9F6}">
+					<ChildrenList>
+						<Action Name="" ID="{A0FB9EBE-8E27-4DF9-B4A1-DBFAA31BD46A}" ShortID="112896286">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dead" ID="{017BA168-1AEC-442D-9FEC-2E6D942C04EC}" WorkUnitID="{E69D1AF6-1884-4D14-8D68-C195AD998216}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DeadPong" ID="{F727C169-C9E7-4E32-9253-716E62747376}">
+					<ChildrenList>
+						<Action Name="" ID="{129B5773-E0DD-420E-B0A0-144BE2F463F7}" ShortID="630160168">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DeadPong" ID="{AF3FFE54-8253-4B7F-8128-49EB696EF7CF}" WorkUnitID="{E69D1AF6-1884-4D14-8D68-C195AD998216}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Freeze" ID="{A68EEA9C-726D-4372-AF0D-A3D4938C7650}">
+					<ChildrenList>
+						<Action Name="" ID="{465E9612-B044-4343-8559-B6DAC3162C30}" ShortID="68000229">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Freeze" ID="{2C165FF9-FE28-4CFD-B66F-CCA2F27F2B3A}" WorkUnitID="{E69D1AF6-1884-4D14-8D68-C195AD998216}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="FreezeSkill" ID="{222999E0-07BF-4354-80A0-2C0A2CBD4816}">
+					<ChildrenList>
+						<Action Name="" ID="{1FB668FE-0310-475A-A5F8-389C5BD65B66}" ShortID="63195520">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="FreezeSkill" ID="{D9B6A1DE-D5D8-474F-9608-CFE44E63325E}" WorkUnitID="{E69D1AF6-1884-4D14-8D68-C195AD998216}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Score" ID="{29434366-D0D2-4EEB-B2AF-2B3FBB20B605}">
+					<ChildrenList>
+						<Action Name="" ID="{58611748-8DAA-49C2-AD8B-4533A64F9DE9}" ShortID="991449184">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Score" ID="{F361A47A-891E-474E-BFB3-3BAAA1190046}" WorkUnitID="{E69D1AF6-1884-4D14-8D68-C195AD998216}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="StopAll" ID="{93C535E5-CE5F-42C2-A526-53D47527CE2D}">
+					<ChildrenList>
+						<Action Name="" ID="{4E973435-3448-4093-8EE2-5EB653CEB76C}" ShortID="858751975">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

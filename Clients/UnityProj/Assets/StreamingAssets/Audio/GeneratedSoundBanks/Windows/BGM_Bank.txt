@@ -1,0 +1,7 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2090192256	BGM_Stop			\Default Work Unit\BGM_Stop	
+	2985635692	BGM_Start			\Default Work Unit\BGM_Start	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	251619155	Alston & Ozone - LSDesigns	G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Windows\SFX\Alston & Ozone - LSDesigns_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\BGM\Music\Alston & Ozone - LSDesigns		16900640
+
