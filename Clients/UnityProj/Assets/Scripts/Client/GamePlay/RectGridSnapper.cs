@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 
-[ExecuteInEditMode]
-public class RectGridSnapper : MonoBehaviour
+namespace BiangLibrary.GridBasedRectSnapper
 {
-    public float SnapperGridSize = 1;
-
-    public Bounds Bounds_GridUnit;
-
-    void Reset()
+    public class RectGridSnapper : MonoBehaviour
     {
-        Bounds_GridUnit.center = transform.localPosition;
-        Bounds_GridUnit.size = transform.localScale;
+        public Vector3 SnapperGridSize = Vector3.one;
+
+        public Bounds Bounds_GridUnit_ReadOnly;
+
+        void Reset()
+        {
+            Bounds_GridUnit_ReadOnly.center = transform.localPosition;
+            Bounds_GridUnit_ReadOnly.size = transform.localScale;
+        }
     }
 }
