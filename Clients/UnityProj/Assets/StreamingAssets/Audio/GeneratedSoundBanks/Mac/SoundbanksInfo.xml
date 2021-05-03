@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3711928297">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1135858204">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,7 +21,7 @@
 				<GameParameter Id="4179668880" Name="Master_Volume" ObjectPath="\Game Parameters\Default Work Unit\Master_Volume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1605876511" Language="SFX" Hash="3912524087">
+		<SoundBank Id="1605876511" Language="SFX" Hash="2898480858">
 			<ObjectPath>\SoundBanks\Default Work Unit\SFX_Bank</ObjectPath>
 			<ShortName>SFX_Bank</ShortName>
 			<Path>SFX_Bank.bnk</Path>
@@ -32,6 +32,7 @@
 				<Event Id="3285814624" Name="Freeze" ObjectPath="\Events\Default Work Unit\Freeze" DurationType="OneShot" DurationMin="3.056327" DurationMax="3.056327"/>
 				<Event Id="2232241423" Name="FreezeSkill" ObjectPath="\Events\Default Work Unit\FreezeSkill" DurationType="OneShot" DurationMin="0.655646" DurationMax="0.655646"/>
 				<Event Id="2398231425" Name="Score" ObjectPath="\Events\Default Work Unit\Score" DurationType="OneShot" DurationMin="1.724082" DurationMax="1.724082"/>
+				<Event Id="988085829" Name="TouchStepSurface" ObjectPath="\Events\Default Work Unit\TouchStepSurface" DurationType="OneShot" DurationMin="0.156062" DurationMax="0.156062"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="43523947" Language="SFX">
@@ -58,9 +59,17 @@
 					<ShortName>Checkpoint.wav</ShortName>
 					<Path>SFX\Checkpoint_10C4C929.wem</Path>
 				</File>
+				<File Id="1069034438" Language="SFX">
+					<ShortName>C.wav</ShortName>
+					<Path>SFX\C_10C4C929.wem</Path>
+				</File>
 			</IncludedMemoryFiles>
+			<GameParameters>
+				<GameParameter Id="2074161545" Name="TouchStepSurfacePitch" ObjectPath="\Game Parameters\Default Work Unit\TouchStepSurfacePitch"/>
+				<GameParameter Id="2743081667" Name="TouchStepSurfaceVolume" ObjectPath="\Game Parameters\Default Work Unit\TouchStepSurfaceVolume"/>
+			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3734788450" Language="SFX" Hash="2094627477">
+		<SoundBank Id="3734788450" Language="SFX" Hash="784139267">
 			<ObjectPath>\SoundBanks\Default Work Unit\BGM_Bank</ObjectPath>
 			<ShortName>BGM_Bank</ShortName>
 			<Path>BGM_Bank.bnk</Path>
@@ -73,7 +82,15 @@
 					<ShortName>Alston &amp; Ozone - LSDesigns.wav</ShortName>
 					<Path>SFX\Alston &amp; Ozone - LSDesigns_D79FB2B7.wem</Path>
 				</File>
+				<File Id="626476084" Language="SFX">
+					<ShortName>moonrivr.mid</ShortName>
+					<Path>SFX\moonrivr_63BFB41E.wmid</Path>
+				</File>
 			</IncludedMemoryFiles>
+			<GameParameters>
+				<GameParameter Id="2074161545" Name="TouchStepSurfacePitch" ObjectPath="\Game Parameters\Default Work Unit\TouchStepSurfacePitch"/>
+				<GameParameter Id="2743081667" Name="TouchStepSurfaceVolume" ObjectPath="\Game Parameters\Default Work Unit\TouchStepSurfaceVolume"/>
+			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

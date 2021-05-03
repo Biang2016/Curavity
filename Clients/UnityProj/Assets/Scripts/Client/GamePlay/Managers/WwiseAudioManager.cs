@@ -17,6 +17,8 @@ public class WwiseAudioManager : MonoSingleton<WwiseAudioManager>
     public RTPC Master_Volume;
     public RTPC BGM_Volume;
     public RTPC SFX_Volume;
+    public RTPC TouchStepSurfacePitch;
+    public RTPC TouchStepSurfaceVolume;
 
     void Awake()
     {
@@ -54,4 +56,5 @@ public class WwiseAudioManager : MonoSingleton<WwiseAudioManager>
     public Event Freeze;
     public Event FreezeSkill;
     public Event Score;
+    public Event TouchStepSurface;
 }

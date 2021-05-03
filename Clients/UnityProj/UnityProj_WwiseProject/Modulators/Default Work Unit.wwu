@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{FB131E1E-9AE3-46AE-AB60-5F5F530BBF67}" SchemaVersion="97">
 	<Modulators>
-		<WorkUnit Name="Default Work Unit" ID="{FB131E1E-9AE3-46AE-AB60-5F5F530BBF67}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{FB131E1E-9AE3-46AE-AB60-5F5F530BBF67}" PersistMode="Standalone">
+			<ChildrenList>
+				<ModulatorLfo Name="Synth Vibrato" ID="{AB3FBAFC-B6F2-45A3-8649-030657689A90}" ShortID="157212870"/>
+			</ChildrenList>
+		</WorkUnit>
 	</Modulators>
 </WwiseDocument>

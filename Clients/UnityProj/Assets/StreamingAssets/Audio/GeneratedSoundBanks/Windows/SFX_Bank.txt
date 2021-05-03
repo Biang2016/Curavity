@@ -1,10 +1,23 @@
 Event	ID	Name			Wwise Object Path	Notes
 	612075679	CheckPoint			\Default Work Unit\CheckPoint	
+	988085829	TouchStepSurface			\Default Work Unit\TouchStepSurface	
 	1334257457	DeadPong			\Default Work Unit\DeadPong	
 	2044049779	Dead			\Default Work Unit\Dead	
 	2232241423	FreezeSkill			\Default Work Unit\FreezeSkill	
 	2398231425	Score			\Default Work Unit\Score	
 	3285814624	Freeze			\Default Work Unit\Freeze	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2074161545	TouchStepSurfacePitch			\Default Work Unit\TouchStepSurfacePitch	
+	2743081667	TouchStepSurfaceVolume			\Default Work Unit\TouchStepSurfaceVolume	
+
+Modulator Envelope	ID	Name			Wwise Object Path	Notes
+	661677112	Modulator Envelope (Custom)				
+	849391183	Modulator Envelope (Custom)				
+
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	271802503	Wwise Synth One	Wwise Synth One		\Actor-Mixer Hierarchy\Default Work Unit\TouchStepSide\Wwise Synth One	
+	336756271	Wwise Synth One	Wwise Synth One		\Actor-Mixer Hierarchy\Default Work Unit\TouchStepSurface\Wwise Synth One	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	43523947	DeadPong	G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Windows\SFX\DeadPong_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DeadPong		497404
@@ -13,4 +26,5 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	171457723	FreezeSkill	G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Windows\SFX\FreezeSkill_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FreezeSkill		57892
 	369336135	Score	G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Windows\SFX\Score_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Score		152128
 	424890944	Checkpoint	G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Windows\SFX\Checkpoint_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Checkpoint		232768
+	1069034438	C	G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Windows\SFX\C_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\C		10052
 

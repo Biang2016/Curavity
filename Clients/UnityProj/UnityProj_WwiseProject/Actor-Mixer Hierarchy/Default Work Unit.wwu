@@ -119,7 +119,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F8A906BC-99A7-44D8-9448-EAB05B782B5A}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA8549F5-4ECE-4BF6-84D4-BA5148FD6A4B}"/>
+							<ObjectRef Name="BGM_Bus" ID="{F86CB8A3-9BE1-4048-9145-171DD39B1802}" WorkUnitID="{CA8549F5-4ECE-4BF6-84D4-BA5148FD6A4B}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -133,6 +133,267 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="Checkpoint" ID="{CA774EBF-B1B6-4985-ACEF-144D9E6CBD54}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="TouchStepSurface" ID="{69491E8D-B9D5-404A-A591-BE29DE004C96}" ShortID="310794083">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<RTPCList>
+								<RTPC Name="" ID="{890816E5-F76D-45E1-A5C1-3277641E1A46}" ShortID="423951221">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="TouchStepSurfacePitch" ID="{41BB0211-CECC-4CE9-8F31-71DDB139636A}" WorkUnitID="{0E874106-AC48-418F-9F81-D828F8271F1E}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{4765951D-2E38-4CD2-9D63-F096A1BC7368}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="65537"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>0</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>10</XPos>
+												<YPos>574</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<RTPCList>
+								<RTPC Name="" ID="{ADF4EFE6-65B3-4E9C-AE3C-5A3CFB3111B4}" ShortID="729453534">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="TouchStepSurfaceVolume" ID="{A45EFF5C-4605-46D4-8B33-80C8D411304C}" WorkUnitID="{0E874106-AC48-418F-9F81-D828F8271F1E}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{3306DE6A-B5A1-452F-852B-334D79F8389B}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="3"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>-9.46487</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>10</XPos>
+												<YPos>17.28487</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F8A906BC-99A7-44D8-9448-EAB05B782B5A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX_Bus" ID="{61956A6D-3F94-49A1-B205-DCF47178EF23}" WorkUnitID="{CA8549F5-4ECE-4BF6-84D4-BA5148FD6A4B}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<SourcePlugin Name="Wwise Synth One" ID="{6BCE5C3E-7A3D-4D1F-B50F-F21C3431CB7A}" ShortID="336756271" PluginName="Wwise Synth One" CompanyID="0" PluginID="148">
+							<PropertyList>
+								<Property Name="FrequencyMode" Type="int32" Value="1"/>
+								<Property Name="NoiseShape" Type="int32" Value="1"/>
+								<Property Name="Osc1Level" Type="Real32" Value="0"/>
+								<Property Name="Osc1Pwm" Type="Real32" Value="59"/>
+								<Property Name="Osc1Waveform" Type="int32" Value="1"/>
+								<Property Name="Osc2Level" Type="Real32" Value="0"/>
+								<Property Name="Osc2Pwm" Type="Real32" Value="63"/>
+								<Property Name="Osc2Transpose" Type="int32" Value="-12"/>
+								<Property Name="Osc2Waveform" Type="int32" Value="1"/>
+								<Property Name="OutputLevel" Type="Real32" Value="4">
+									<RTPCList>
+										<RTPC Name="" ID="{BBF9A509-6584-4253-A2EE-6B56446B34CF}" ShortID="718238974">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<Custom>
+														<ModulatorEnvelope Name="Modulator Envelope (Custom)" ID="{EB39E069-017B-42A6-97F3-D4858E650059}" ShortID="661677112">
+															<PropertyList>
+																<Property Name="EnvelopeAttackCurve" Type="Real64" Value="100"/>
+																<Property Name="EnvelopeAttackTime" Type="Real64" Value="0"/>
+																<Property Name="EnvelopeAutoRelease" Type="bool" Value="True"/>
+																<Property Name="EnvelopeDecayTime" Type="Real64" Value="0.026"/>
+																<Property Name="EnvelopeReleaseTime" Type="Real64" Value="0.2"/>
+																<Property Name="EnvelopeSustainLevel" Type="Real64" Value="6.3"/>
+															</PropertyList>
+														</ModulatorEnvelope>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{2E1442DC-A67A-4E06-9E73-7D521883CE7D}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-96</YPos>
+														<Flags>21</Flags>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>0</YPos>
+														<Flags>53</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<Language>SFX</Language>
+						</SourcePlugin>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Wwise Synth One" ID="{6BCE5C3E-7A3D-4D1F-B50F-F21C3431CB7A}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="TouchStepSide" ID="{02C71CB8-2685-47AC-934D-C497FF753DAA}" ShortID="751218429">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F8A906BC-99A7-44D8-9448-EAB05B782B5A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX_Bus" ID="{61956A6D-3F94-49A1-B205-DCF47178EF23}" WorkUnitID="{CA8549F5-4ECE-4BF6-84D4-BA5148FD6A4B}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<SourcePlugin Name="Wwise Synth One" ID="{2EC4493A-BB65-4F9E-B66F-196F9B9D50A2}" ShortID="271802503" PluginName="Wwise Synth One" CompanyID="0" PluginID="148">
+							<PropertyList>
+								<Property Name="FrequencyMode" Type="int32" Value="1"/>
+								<Property Name="OutputLevel" Type="Real32">
+									<RTPCList>
+										<RTPC Name="" ID="{DB0FFA97-F76C-4280-9EB8-E7D6E4233477}" ShortID="148841612">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<Custom>
+														<ModulatorEnvelope Name="Modulator Envelope (Custom)" ID="{7F98CB9F-1DC9-4AB8-8FA5-88F3BDA5BFE0}" ShortID="849391183">
+															<PropertyList>
+																<Property Name="EnvelopeAttackTime" Type="Real64" Value="0.01"/>
+															</PropertyList>
+														</ModulatorEnvelope>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{63C2E06F-625E-48B9-8784-1BE37F7A2C6C}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-96</YPos>
+														<Flags>21</Flags>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>0</YPos>
+														<Flags>53</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<Language>SFX</Language>
+						</SourcePlugin>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Wwise Synth One" ID="{2EC4493A-BB65-4F9E-B66F-196F9B9D50A2}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="C" ID="{21DBED26-0773-4327-9040-00B89E40F5FE}" ShortID="497765807">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<RTPCList>
+								<RTPC Name="" ID="{F4D9D621-9DA2-47E1-836A-445C7160222A}" ShortID="976919446">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="TouchStepSurfacePitch" ID="{41BB0211-CECC-4CE9-8F31-71DDB139636A}" WorkUnitID="{0E874106-AC48-418F-9F81-D828F8271F1E}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{A6E0E3CD-0B1C-4109-AE98-D0854C714545}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="65537"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>0</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>10</XPos>
+												<YPos>210</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<RTPCList>
+								<RTPC Name="" ID="{58E9C4FE-E346-495A-B586-4F92B4DC260A}" ShortID="833753081">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="TouchStepSurfaceVolume" ID="{A45EFF5C-4605-46D4-8B33-80C8D411304C}" WorkUnitID="{0E874106-AC48-418F-9F81-D828F8271F1E}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{53CB5232-A948-4382-B3A5-69150F911623}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="3"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>0</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>10</XPos>
+												<YPos>14.12296</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F8A906BC-99A7-44D8-9448-EAB05B782B5A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA8549F5-4ECE-4BF6-84D4-BA5148FD6A4B}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="C" ID="{7E32FBF1-B956-49CD-AB46-23B195749E6C}">
+							<Language>SFX</Language>
+							<AudioFile>C.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="1069034438"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="C" ID="{7E32FBF1-B956-49CD-AB46-23B195749E6C}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

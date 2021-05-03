@@ -30,7 +30,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: f54985cace4ef64b84d4ba5148fd6a4b
     GuidInternal: 
-    m_lastTime: -8585815966967081565
+    m_lastTime: -8585815938633057553
     List:
     - name: BGM_Bus
       guid: a3b86cf8e19b48409145171dd39b1802
@@ -99,7 +99,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 6859b6789ffef64c8c4a11572d5c1491
     GuidInternal: 
-    m_lastTime: -8585815957479913437
+    m_lastTime: -8585815767005235969
     List:
     - name: BGM_Start
       guid: ff6b4940d39e4849b767605e1d9bd58b
@@ -111,8 +111,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\BGM_Start
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: BGM_Stop
       guid: bdb35d068617a744864432def7365029
       id: 2090192256
@@ -209,6 +209,18 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: TouchStepSurface
+      guid: 5584248c8301e541adcad6e01c1b4315
+      id: 988085829
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: TouchStepSurface
+        ObjectType: 3
+      Path: Default Work Unit\TouchStepSurface
+      maxAttenuation: 0
+      maxDuration: 0.156062
+      minDuration: 0.156062
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -217,7 +229,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 0641870e48ac8f419f81d828f8271f1e
     GuidInternal: 
-    m_lastTime: -8585815966804111129
+    m_lastTime: -8585815783613639961
     List:
     - name: BGM_Volume
       guid: 661061264220194494a4e6126d6e7874
@@ -246,6 +258,24 @@ MonoBehaviour:
       - ElementName: SFX_Volume
         ObjectType: 13
       Path: Default Work Unit\SFX_Volume
+    - name: TouchStepSurfacePitch
+      guid: 1102bb41cccee94c8f3171ddb139636a
+      id: 2074161545
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: TouchStepSurfacePitch
+        ObjectType: 13
+      Path: Default Work Unit\TouchStepSurfacePitch
+    - name: TouchStepSurfaceVolume
+      guid: 5cff5ea40546d4468b3380c8d411304c
+      id: 2743081667
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: TouchStepSurfaceVolume
+        ObjectType: 13
+      Path: Default Work Unit\TouchStepSurfaceVolume
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -278,7 +308,5 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /UnityProj_WwiseProject
-  - /UnityProj_WwiseProject/SoundBanks
-  - /UnityProj_WwiseProject/SoundBanks/Default Work Unit
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

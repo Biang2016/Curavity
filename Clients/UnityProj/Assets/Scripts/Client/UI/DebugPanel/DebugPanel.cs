@@ -1,24 +1,23 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using BiangLibrary.GamePlay.UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using Debug = UnityEngine.Debug;
 
 public class DebugPanel : BaseUIPanel
 {
     public Button DebugToggleButton;
     public Gradient FrameRateGradient;
     public Text fpsText;
-    public Text velYText;
-    private float deltaTime;
 
     private Dictionary<string, DebugPanelComponent> DebugComponentDictTree = new Dictionary<string, DebugPanelComponent>();
     private List<DebugPanelColumn> DebugButtonColumns = new List<DebugPanelColumn>();
     public Transform ColumnContainer;
+
+    public UnityAction OnShortcutKeyDown = null;
 
     void Awake()
     {
@@ -26,12 +25,35 @@ public class DebugPanel : BaseUIPanel
             false,
             false,
             false,
-            UIFormTypes.Fixed,
+            UIFormTypes.Normal,
             UIFormShowModes.Normal,
             UIFormLucencyTypes.Penetrable);
     }
 
     void Start()
+    {
+        Init();
+    }
+
+    public void Clear()
+    {
+        foreach (KeyValuePair<string, DebugPanelComponent> kv in DebugComponentDictTree)
+        {
+            kv.Value.PoolRecycle();
+        }
+
+        DebugComponentDictTree.Clear();
+
+        foreach (DebugPanelColumn column in DebugButtonColumns)
+        {
+            column.PoolRecycle();
+        }
+
+        DebugButtonColumns.Clear();
+        OnShortcutKeyDown = null;
+    }
+
+    public void Init()
     {
         IsButtonsShow = false;
         Type type = typeof(DebugPanel);
@@ -58,61 +80,49 @@ public class DebugPanel : BaseUIPanel
                 {
                     if (string.IsNullOrEmpty(dba.MethodName))
                     {
-                        AddButton(dba.ButtonName, 0, DebugComponentDictTree, () => { m.Invoke(this, new object[] { }); }, true);
+                        UnityAction action = () => { m.Invoke(this, new object[] { }); };
+                        AddButton(dba.ButtonName, dba.Shortcut, 0, DebugComponentDictTree, action, true);
+#if DEBUG || DEVELOPMENT_BUILD
+                        if (dba.Shortcut != KeyCode.None)
+                        {
+                            OnShortcutKeyDown += () =>
+                            {
+                                if (Input.GetKeyDown(dba.Shortcut))
+                                {
+                                    action?.Invoke();
+                                }
+                            };
+                        }
+#endif
                     }
                     else
                     {
-                        MethodInfo method = null;
-                        MethodInfo method_2 = null;
-                        foreach (MethodInfo mt in type.GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.Public))
+                        bool methodFound = false;
+                        foreach (MethodInfo method in type.GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.Public))
                         {
-                            if (mt.Name.Equals(dba.MethodName)) method = mt;
-                            if (mt.Name.Equals(dba.MethodName_2)) method_2 = mt;
-                        }
-
-                        if (method == null && !string.IsNullOrWhiteSpace(dba.MethodName))
-                        {
-                            Debug.LogError($"[DebugPanel] 无法找到名为{dba.MethodName}的函数");
-                            return;
-                        }
-
-                        if (method_2 == null && !string.IsNullOrWhiteSpace(dba.MethodName_2))
-                        {
-                            Debug.LogError($"[DebugPanel] 无法找到名为{dba.MethodName_2}的函数");
-                            return;
-                        }
-
-                        try
-                        {
-                            if (method != null)
+                            if (method.Name.Equals(dba.MethodName))
                             {
-                                List<string> strList = (List<string>) method.Invoke(this, new object[] { });
-
-                                if (method_2 == null)
+                                methodFound = true;
+                                try
                                 {
+                                    List<string> strList = (List<string>) method.Invoke(this, new object[] { });
                                     foreach (string s in strList)
                                     {
                                         string buttonName = string.Format(dba.ButtonName, s);
-                                        AddButton(buttonName, 0, DebugComponentDictTree, () => { m.Invoke(this, new object[] {s}); }, true);
+                                        AddButton(buttonName, KeyCode.None, 0, DebugComponentDictTree, () => { m.Invoke(this, new object[] {s}); }, true);
                                     }
                                 }
-                                else
+                                catch (Exception e)
                                 {
-                                    IList objList = (IList) method_2.Invoke(this, new object[] { });
-                                    for (int index = 0; index < strList.Count; index++)
-                                    {
-                                        string s = strList[index];
-                                        object obj = objList[index];
-                                        string buttonName = string.Format(dba.ButtonName, s);
-                                        AddButton(buttonName, 0, DebugComponentDictTree, () => { m.Invoke(this, new object[] {s, obj}); }, true);
-                                    }
+                                    Debug.LogError(e);
+                                    throw;
                                 }
                             }
                         }
-                        catch (Exception e)
+
+                        if (!methodFound)
                         {
-                            Debug.LogError(e);
-                            throw;
+                            Debug.LogError($"[DebugPanel] 无法找到名为{dba.MethodName}的函数");
                         }
                     }
 
@@ -120,7 +130,7 @@ public class DebugPanel : BaseUIPanel
                 }
                 case DebugToggleButtonAttribute dtba:
                 {
-                    AddButton(dtba.ButtonName, 0, DebugComponentDictTree, () => { m.Invoke(this, new object[] { }); }, true);
+                    AddButton(dtba.ButtonName, KeyCode.None, 0, DebugComponentDictTree, () => { m.Invoke(this, new object[] { }); }, true);
                     break;
                 }
                 case DebugSliderAttribute dsa:
@@ -132,17 +142,24 @@ public class DebugPanel : BaseUIPanel
         }
     }
 
+    public float showTime = 0.5f;
+    private int count = 0;
+    private float deltaTime = 0f;
+
     void Update()
     {
-        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
-        float fps = 1.0f / deltaTime;
-        fpsText.text = fps.ToString("###");
-        DebugToggleButton.image.color = FrameRateGradient.Evaluate(fps / 144f);
-
-        if (LevelManager.Instance.Player != null)
+        count++;
+        deltaTime += Time.deltaTime;
+        if (deltaTime >= showTime)
         {
-            velYText.text = LevelManager.Instance.Player.Rigidbody.velocity.y.ToString("F1");
+            float fps = count / deltaTime;
+            count = 0;
+            deltaTime = 0f;
+            fpsText.text = fps.ToString("###");
+            DebugToggleButton.image.color = FrameRateGradient.Evaluate(fps / 144f);
         }
+
+        OnShortcutKeyDown?.Invoke();
     }
 
     private bool isButtonsShow = false;
@@ -162,7 +179,7 @@ public class DebugPanel : BaseUIPanel
         IsButtonsShow = !IsButtonsShow;
     }
 
-    private void AddButton(string buttonName, int layerDepth, Dictionary<string, DebugPanelComponent> currentTree, UnityAction action, bool functional)
+    private void AddButton(string buttonName, KeyCode shortcut, int layerDepth, Dictionary<string, DebugPanelComponent> currentTree, UnityAction action, bool functional)
     {
         if (layerDepth >= DebugButtonColumns.Count)
         {
@@ -176,9 +193,11 @@ public class DebugPanel : BaseUIPanel
         if (!currentTree.ContainsKey(paths[0]))
         {
             DebugPanelButton btn = GameObjectPoolManager.Instance.PoolDict[GameObjectPoolManager.PrefabNames.DebugPanelButton].AllocateGameObject<DebugPanelButton>(currentColumn.transform);
-            btn.Initialize(paths[0], (paths.Length == 1 && functional)
-                ? action
-                : ToggleSubColumn(btn, currentTree));
+            bool isLeave = paths.Length == 1 && functional;
+            btn.Initialize(
+                paths[0],
+                isLeave ? shortcut : KeyCode.None,
+                isLeave ? action : ToggleSubColumn(btn, currentTree));
             btn.gameObject.SetActive(layerDepth == 0);
             currentTree.Add(paths[0], btn);
         }
@@ -186,7 +205,7 @@ public class DebugPanel : BaseUIPanel
         if (paths.Length > 1)
         {
             string remainingPath = buttonName.Replace(paths[0] + "/", "");
-            AddButton(remainingPath, layerDepth + 1, currentTree[paths[0]].DebugComponentDictTree, action, functional);
+            AddButton(remainingPath, shortcut, layerDepth + 1, currentTree[paths[0]].DebugComponentDictTree, action, functional);
         }
     }
 
@@ -240,7 +259,7 @@ public class DebugPanel : BaseUIPanel
             else
             {
                 string buttonPath = sliderName.Replace("/" + paths[paths.Length - 1], "");
-                AddButton(buttonPath, layerDepth, currentTree, null, false);
+                AddButton(buttonPath, KeyCode.None, layerDepth, currentTree, null, false);
                 AddSlider(sliderName, layerDepth, defaultValue, min, max, currentTree, action);
                 return;
             }
@@ -279,5 +298,32 @@ public class DebugPanel : BaseUIPanel
     public List<CheckPoint> GetCheckPoints()
     {
         return LevelManager.Instance.CurrentLevel.CheckPoints;
+    }
+
+    [DebugSlider("Game/TimeScale", 1f, 0, 1f)]
+    public void ChangeTimeScale(float value)
+    {
+        Time.timeScale = value;
+    }
+
+    [DebugSlider("Audio/Master_Volume", 100, 0, 100)]
+    public void Set_Master_Volume(float value)
+    {
+        PlayerPrefs.SetFloat("Master_Volume", value);
+        WwiseAudioManager.Instance.Master_Volume.SetGlobalValue(value);
+    }
+
+    [DebugSlider("Audio/BGM_Volume", 100, 0, 100)]
+    public void Set_BGM_Volume(float value)
+    {
+        PlayerPrefs.SetFloat("BGM_Volume", value);
+        WwiseAudioManager.Instance.BGM_Volume.SetGlobalValue(value);
+    }
+
+    [DebugSlider("Audio/SFX_Volume", 100, 0, 100)]
+    public void Set_SFX_Volume(float value)
+    {
+        PlayerPrefs.SetFloat("SFX_Volume", value);
+        WwiseAudioManager.Instance.SFX_Volume.SetGlobalValue(value);
     }
 }

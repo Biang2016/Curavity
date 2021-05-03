@@ -2,6 +2,17 @@ Event	ID	Name			Wwise Object Path	Notes
 	2090192256	BGM_Stop			\Default Work Unit\BGM_Stop	
 	2985635692	BGM_Start			\Default Work Unit\BGM_Start	
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2074161545	TouchStepSurfacePitch			\Default Work Unit\TouchStepSurfacePitch	
+	2743081667	TouchStepSurfaceVolume			\Default Work Unit\TouchStepSurfaceVolume	
+
+Modulator Envelope	ID	Name			Wwise Object Path	Notes
+	661677112	Modulator Envelope (Custom)				
+
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	336756271	Wwise Synth One	Wwise Synth One		\Actor-Mixer Hierarchy\Default Work Unit\TouchStepSurface\Wwise Synth One	
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	251619155	Alston & Ozone - LSDesigns	G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Windows\SFX\Alston & Ozone - LSDesigns_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\BGM\Music\Alston & Ozone - LSDesigns		16900640
+	626476084	moonrivr	G:\NYUGC\PrototypeStudio\Curavity\Clients\UnityProj\UnityProj_WwiseProject\.cache\Windows\SFX\moonrivr_63BFB41E.wmid		\Interactive Music Hierarchy\Default Work Unit\BGM\Curavity\moonrivr		13525
 

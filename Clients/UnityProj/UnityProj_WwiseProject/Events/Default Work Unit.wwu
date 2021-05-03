@@ -105,6 +105,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="TouchStepSurface" ID="{8C248455-0183-41E5-ADCA-D6E01C1B4315}">
+					<ChildrenList>
+						<Action Name="" ID="{CD6D87E5-7E62-4245-A3B1-27971938BE45}" ShortID="435867860">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="C" ID="{21DBED26-0773-4327-9040-00B89E40F5FE}" WorkUnitID="{E69D1AF6-1884-4D14-8D68-C195AD998216}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -190,5 +190,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7545575172603733744, guid: 776f29a684a9a412eb9b5171aa4742bd,
+        type: 3}
+      propertyPath: TouchStepSurface.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: e65c39c99c134de4eb1b4eb5d6a2a8a6,
+        type: 2}
+    - target: {fileID: 7545575172603733744, guid: 776f29a684a9a412eb9b5171aa4742bd,
+        type: 3}
+      propertyPath: TouchStepSurfacePitch.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 5b681a6a8944ce44e8e143d802f1985a,
+        type: 2}
+    - target: {fileID: 7545575172603733744, guid: 776f29a684a9a412eb9b5171aa4742bd,
+        type: 3}
+      propertyPath: TouchStepSurfaceVolume.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: df226b7e86e54064bac9d9b901fb4315,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 776f29a684a9a412eb9b5171aa4742bd, type: 3}

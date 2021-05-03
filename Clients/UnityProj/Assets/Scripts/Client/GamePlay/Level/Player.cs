@@ -152,6 +152,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    private int StepSequenceIndex = 0;
+    private float StepSequenceTick = 0;
+    public float StepSequenceReduceThreshold = 0.4f;
+
+    private float LastVelocityY = 0;
+    private float LastPeakPosY = 0;
+
     void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.D))
@@ -169,6 +176,20 @@ public class Player : MonoBehaviour
             Mathf.Clamp(Rigidbody.velocity.x, -sideMoveMaxSpeed, sideMoveMaxSpeed),
             Mathf.Clamp(Rigidbody.velocity.y, float.MinValue, MaxYSpeed),
             Mathf.Clamp(Rigidbody.velocity.z, -sideMoveMaxSpeed, sideMoveMaxSpeed));
+
+        StepSequenceTick += Time.fixedDeltaTime;
+        if (StepSequenceTick > StepSequenceReduceThreshold)
+        {
+            StepSequenceTick = 0;
+            StepSequenceIndex = 0;
+        }
+
+        if (Rigidbody.velocity.y < 0 && LastVelocityY > 0)
+        {
+            LastPeakPosY = transform.position.y;
+        }
+
+        LastVelocityY = Rigidbody.velocity.y;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -181,6 +202,22 @@ public class Player : MonoBehaviour
         else if (collision.collider.gameObject.layer == LayerManager.Instance.Layer_Step && collision.relativeVelocity.magnitude > DiveCollideFXVelocityThreshold)
         {
             ProjectileManager.Instance.PlayProjectileHit(DiveHitFX, collision.GetContact(0).point);
+        }
+
+        if (collision.contacts[0].normal.y > 0.5f)
+        {
+            Step step = collision.collider.gameObject.GetComponentInParent<Step>();
+            if (step != null)
+            {
+                float dropHeight = LastPeakPosY - collision.contacts[0].point.y;
+                int height = Mathf.RoundToInt(dropHeight);
+                Debug.Log(dropHeight);
+                WwiseAudioManager.Instance.TouchStepSurfacePitch.SetGlobalValue(height);
+                WwiseAudioManager.Instance.TouchStepSurfaceVolume.SetGlobalValue(height);
+                WwiseAudioManager.Instance.TouchStepSurface.Post(gameObject);
+                //StepSequenceIndex++;
+                StepSequenceTick = 0;
+            }
         }
     }
 

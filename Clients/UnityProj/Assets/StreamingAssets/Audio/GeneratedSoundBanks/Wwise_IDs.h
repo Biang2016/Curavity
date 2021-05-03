@@ -21,6 +21,7 @@ namespace AK
         static const AkUniqueID FREEZE = 3285814624U;
         static const AkUniqueID FREEZESKILL = 2232241423U;
         static const AkUniqueID SCORE = 2398231425U;
+        static const AkUniqueID TOUCHSTEPSURFACE = 988085829U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS
@@ -28,6 +29,8 @@ namespace AK
         static const AkUniqueID BGM_VOLUME = 341651998U;
         static const AkUniqueID MASTER_VOLUME = 4179668880U;
         static const AkUniqueID SFX_VOLUME = 1564184899U;
+        static const AkUniqueID TOUCHSTEPSURFACEPITCH = 2074161545U;
+        static const AkUniqueID TOUCHSTEPSURFACEVOLUME = 2743081667U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
